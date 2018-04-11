@@ -6,7 +6,6 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 public class webPage extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -15,7 +14,8 @@ public class webPage extends AppCompatActivity {
         webView.getSettings().setJavaScriptEnabled(true);
         webView.setWebViewClient(new WebViewClient());
         Bundle extras = getIntent().getExtras();
-        String url = extras.getString("url");
+        Integer id = extras.getInt("id");
+        String url = News.getUrl(id);
         webView.loadUrl(url);
     }
 }
